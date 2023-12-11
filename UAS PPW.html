@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>DATASET &#8212; Luthvi Ramasandhika Yustiadi</title>
+    <title>UAS PPW &#8212; Luthvi Ramasandhika Yustiadi</title>
   
   
   
@@ -163,12 +163,11 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Pencarian Dan Penambangan Web
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas%20Scraping%20PTA.html"><strong>Punctuation process</strong></a></li>
 
 
@@ -185,7 +184,11 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1"><a class="reference internal" href="Crawling%20UAS%20PPW.html">Crawling Tugas UAS</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">DATASET</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">UAS PPW</a></li>
+
+
+
+
 
 </ul>
 
@@ -372,7 +375,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>DATASET</h1>
+    <h1>UAS PPW</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -382,8 +385,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">DATASET</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-data">Cleaning data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">UAS PPW</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">DATASET</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-data">Cleaning data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lowecase">Lowecase</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#punctuation">Punctuation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopword">stopword</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steming">Steming</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-ekstraksi">fitur ekstraksi</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data">Split Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">Classification</a></li>
 </ul>
 
             </nav>
@@ -396,7 +413,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="dataset">
+  <section class="tex2jax_ignore mathjax_ignore" id="uas-ppw">
+<h1>UAS PPW<a class="headerlink" href="#uas-ppw" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dataset">
 <h1>DATASET<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -527,6 +547,9 @@ Name: Content, Length: 1275, dtype: object
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="cleaning-data">
 <h1>Cleaning data<a class="headerlink" href="#cleaning-data" title="Permalink to this heading">#</a></h1>
+<p>Tahap membersihkan data dari noise, menghapus
+karakter khusus, menghapus angka dan menghilangkan spasi yang
+berlebihan. Cleaning data dengan menggunakan library re</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>nltk
@@ -590,7 +613,11 @@ Requirement already satisfied: joblib in /usr/local/lib/python3.10/dist-packages
 </div>
 </div>
 </div>
-<p>Lowecase</p>
+<section id="lowecase">
+<h2>Lowecase<a class="headerlink" href="#lowecase" title="Permalink to this heading">#</a></h2>
+<p>proses untuk mengubah semua huruf dalam dokumen
+menjadi huruf kecil (lowercase), yang bertujuan untuk memastikan
+konsistensi dalam pemrosesan teks. Case folding dengan lowercase</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing</span> <span class="o">=</span> <span class="n">berita</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -621,7 +648,14 @@ Name: Content, Length: 1275, dtype: object
 </div>
 </div>
 </div>
-<p>Tokenisasi</p>
+</section>
+<section id="tokenisasi">
+<h2>Tokenisasi<a class="headerlink" href="#tokenisasi" title="Permalink to this heading">#</a></h2>
+<p>proses membagi teks menjadi unit-unit terpisah yang
+disebut token. Token merupakan unit terkecil dalam teks, yang bisa
+berupa kata, frasa, karakter, atau bahkan simbol tertentu. Tujuan dari
+tokenisasi adalah untuk mempermudah pemrosesan dan analisis lebih
+lanjut terhadap teks. Tokenizing dengan library nltk.tokenize.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
@@ -655,7 +689,10 @@ Name: Content, Length: 1275, dtype: object
 </div>
 </div>
 </div>
-<p>Punctuation</p>
+</section>
+<section id="punctuation">
+<h2>Punctuation<a class="headerlink" href="#punctuation" title="Permalink to this heading">#</a></h2>
+<p>Menghapus seluruh tanda baca yang ada pada konten berita Cleaning data dengan menggunakan library re</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_punctuation</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
@@ -691,7 +728,13 @@ Name: Content, Length: 1275, dtype: object
 </div>
 </div>
 </div>
-<p>stopword</p>
+</section>
+<section id="stopword">
+<h2>stopword<a class="headerlink" href="#stopword" title="Permalink to this heading">#</a></h2>
+<p>Tahap menghapus kata-kata yang kurang
+berrmakna atau tidak memiliki arti seperti kata: saya, dan, atau. Filtering
+stop word dengan library nltk, dengan menggunakan kamus stopword
+bahasa Indonesia.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_stopword_token</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
@@ -728,7 +771,15 @@ Name: Content, Length: 1275, dtype: object
 </div>
 </div>
 </div>
-<p>Steming</p>
+</section>
+<section id="steming">
+<h2>Steming<a class="headerlink" href="#steming" title="Permalink to this heading">#</a></h2>
+<p>Proses untuk menghapus kata imbuhan untuk mendapatkan
+kata dasarnya. Pada proses stemming dengan menggunakan
+library sastrawi. PySastrawi adalah sebuah library Python yang
+menyediakan fungsi-fungsi untuk melakukan pemrosesan bahasa alami
+dalam bahasa Indonesia, seperti stemming (pemenggalan kata ke bentuk
+dasarnya).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
@@ -769,7 +820,10 @@ Name: Content, Length: 1275, dtype: object
 </div>
 </div>
 </div>
-<p>fitur ekstraksi</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fitur-ekstraksi">
+<h1>fitur ekstraksi<a class="headerlink" href="#fitur-ekstraksi" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">csv_preprocessing</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/PPW/preprocessing-berita.csv&#39;</span>
@@ -1104,7 +1158,19 @@ Name: Content, Length: 1275, dtype: object
 </div>
 </div>
 </div>
-<p>TF-IDF</p>
+<section id="tf-idf">
+<h2>TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h2>
+<p>Pada Tahap ekstraksi fitur, dilakukan dengan metode TF-IDF (Term
+Frequency-Inverse Document Frequency) melibatkan perhitungan nilai TF-IDF
+untuk setiap kata dalam setiap dokumen. Menghitung TF adalah menghitung
+frekuensi kemunculan setiap kata dalam dokumen tertentu. Kemudian
+menghitung DF adalah menghitung jumlah dokumen dalam korpus yang
+mengandung kata tertentu. Lalu IDF yaitu menghitung kebalikan dari DF, dapat
+dihitung dengan menggunakan rumus logaritma dari jumlah total dokumen
+dibagi dengan DF untuk kata tersebut. Dan kemudian TF-IDF yaitu mengalikan
+nilai TF dengan nilai IDF untuk setiap kata dalam setiap dokumen. Akan
+menghasilkan representasi vektor numerik yang memperhitungkan pentingnya
+kata dalam dokumen dan dalam korpus secara keseluruhan</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidfvectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">analyzer</span><span class="o">=</span><span class="s1">&#39;word&#39;</span><span class="p">)</span>
@@ -1644,7 +1710,11 @@ Name: Content, Length: 1275, dtype: object
   </div>
 </div></div>
 </div>
-<p>Split Data</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="split-data">
+<h1>Split Data<a class="headerlink" href="#split-data" title="Permalink to this heading">#</a></h1>
+<p>Pembagian dataset dibagi menjadi dua yaitu data training dan data testing. Data training digunakan untuk proses pelatihan. Data testing digunakan untuk testing</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">tfidf_df</span>
@@ -2063,7 +2133,9 @@ Name: Category, Length: 1275, dtype: object
   </div>
 </div></div>
 </div>
-<p>Classification</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="classification">
+<h1>Classification<a class="headerlink" href="#classification" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">naive_bayes_classifier</span> <span class="o">=</span> <span class="n">MultinomialNB</span><span class="p">()</span>
@@ -2178,8 +2250,22 @@ Name: Category, Length: 1275, dtype: object
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">DATASET</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-data">Cleaning data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">UAS PPW</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">DATASET</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-data">Cleaning data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lowecase">Lowecase</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#punctuation">Punctuation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopword">stopword</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steming">Steming</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-ekstraksi">fitur ekstraksi</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data">Split Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">Classification</a></li>
 </ul>
 
   </nav></div>
