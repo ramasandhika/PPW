@@ -168,7 +168,8 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Tugas%20Scraping%20PTA.html"><strong>Punctuation process</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas%20Scraping%20PTA.html">Tugas Scraping PTA</a></li>
+
 
 
 
@@ -386,7 +387,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">UAS PPW</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">DATASET</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-data">Cleaning data</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lowecase">Lowecase</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a></li>
@@ -401,6 +401,7 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data">Split Data</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">Classification</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#aplikasi-predikisi">Aplikasi Predikisi</a></li>
 </ul>
 
             </nav>
@@ -415,9 +416,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="uas-ppw">
 <h1>UAS PPW<a class="headerlink" href="#uas-ppw" title="Permalink to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="dataset">
-<h1>DATASET<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -2136,6 +2134,9 @@ Name: Category, Length: 1275, dtype: object
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="classification">
 <h1>Classification<a class="headerlink" href="#classification" title="Permalink to this heading">#</a></h1>
+<p>Metode Naive Bayes adalah metode klasifikasi yang berdasarkan pada Teorema
+Bayes dengan asumsi independensi antara fitur-fitur yang ada. Metode ini cocok untuk digunakan pada data yang memiliki banyak fitur. Pada dasarnya,
+algoritma Naive Bayes menghitung probabilitas posterior dari setiap kelas berdasarkan fitur-fitur yang diamati.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">naive_bayes_classifier</span> <span class="o">=</span> <span class="n">MultinomialNB</span><span class="p">()</span>
@@ -2195,6 +2196,10 @@ Name: Category, Length: 1275, dtype: object
 </div>
 </div>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="aplikasi-predikisi">
+<h1>Aplikasi Predikisi<a class="headerlink" href="#aplikasi-predikisi" title="Permalink to this heading">#</a></h1>
+<p>Aplikasi untuk klasifikasi berita 👉 <a class="reference external" href="https://uasppw.streamlit.app/">Streamlit</a></p>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2251,7 +2256,6 @@ Name: Category, Length: 1275, dtype: object
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">UAS PPW</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">DATASET</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-data">Cleaning data</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lowecase">Lowecase</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a></li>
@@ -2266,6 +2270,7 @@ Name: Category, Length: 1275, dtype: object
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data">Split Data</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">Classification</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#aplikasi-predikisi">Aplikasi Predikisi</a></li>
 </ul>
 
   </nav></div>
