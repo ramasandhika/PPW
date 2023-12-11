@@ -1,0 +1,2450 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Scraping Data &#8212; Luthvi Ramasandhika Yustiadi</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tugas 3';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Crawling Tugas UAS" href="Crawling%20UAS%20PPW.html" />
+    <link rel="prev" title="Proporsi Teks" href="Tugas%202.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Luthvi Ramasandhika Yustiadi - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Luthvi Ramasandhika Yustiadi - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas%20Scraping%20PTA.html"><strong>Punctuation process</strong></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Tugas%201.html">PTA</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Tugas%202.html">Proporsi Teks</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Scraping Data</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Crawling%20UAS%20PPW.html">Crawling Tugas UAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UAS%20PPW.html">DATASET</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ramasandhika/taPPW" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ramasandhika/taPPW/issues/new?title=Issue%20on%20page%20%2FTugas 3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Tugas 3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Scraping Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Scraping Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-fitur">Ekstraksi Fitur</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menyusun-dan-menampilkan-graph">Menyusun dan Menampilkan Graph</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">Cosine Similarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">Graph</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-sentralitas">Matriks Sentralitas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-cetrality">Closeness Cetrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-rank">Page Rank</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#between-centrality">Between Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvector">Eigenvector</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="scraping-data">
+<h1>Scraping Data<a class="headerlink" href="#scraping-data" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Unduh konten halaman web berita</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://radarjatim.id/akhir-tahun-berkah-dengan-mewujudkan-mushola-layak-di-pelosok-probolinggo/&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+
+<span class="c1"># Parsing halaman web menggunakan BeautifulSoup</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+
+<span class="c1"># Ekstraksi teks dari elemen-elemen yang berisi berita</span>
+<span class="n">article</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;content-inner&quot;</span><span class="p">)</span>  <span class="c1"># Sesuaikan dengan struktur HTML halaman web berita</span>
+
+<span class="c1"># Periksa apakah elemen article ada sebelum mencoba mengambil teksnya</span>
+<span class="k">if</span> <span class="n">article</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">article_text</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+
+    <span class="c1"># Tokenisasi teks menjadi kalimat menggunakan nltk</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>  <span class="c1"># Pastikan Anda sudah mengunduh tokenisasi kalimat nltk</span>
+    <span class="n">sentences</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">article_text</span><span class="p">)</span> <span class="c1">#Proses pemecahan kalimat - kalimat</span>
+
+    <span class="c1"># Cetak kalimat-kalimat</span>
+    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elemen berita tidak ditemukan&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PROBOLINGGO (RadarJatim.id) Di penghujung tahun 2023 ini, Laznas BMH terus istiqomah menebar kebaikan di pelosok Jawa Timur bersama para donatur dan dermawan.
+Mulai pembangunan mushola pelosok, pembangunan instalasi sumur bor untuk masjid atau pesantren, pendistribusian mushaf Al Qur’an untuk masjid pelosok, solidaritas muslim Palestina, dan masih banyak lagi.
+Kondisi bangunan mushola Al Munir yang perlu pembenahan.
+Sebagaimana diketahui bersama bahwasanya Laznas BMH telah mendapatkan berbagai peghargaan dari Baznas Award 2019 sampai dengan 2022 dalam kategori SDM dan Jaringan Terbaik.
+Sserta Pendistribusian ZIS Terbaik juga Keuangan Terbaik dan teraudit dengan Predikat Wajar Tanpa Pengecualian 16 kali berturut turut dan terus berkontribusi membangun negeri di 3T (Terdepan, Tertinggal dan Terdalam).
+Olehnya, pada momen akhir tahun ini Laznas BMH menawarkan sinergi untuk pembangunan mushola pelosok di Probolinggo, tepatnya di desa Sambirampak Kabupaten Probolinggo yang bernama Mushola Al Munir.
+Kondisi bangunan mushola Al Munir di Desa Sambirampak, Probolinggo
+“Yakni kondisi mushola tersebut sudah 47 tahun silam dan sangat memprihantinkan sekali .
+Apalagi musim hujan pasti bocor dan kayu kayu banyak di makan rayap mata.
+Pencaharian sekitar warga adalah buruh tani, jumlah warga 200 KK, Santri yang mengaji 23 anak,” kata Munir.
+Karenanya Yukk tutup akhir tahun berkah ini dengan bersinergi dan berdonasi untuk wujudkan mushola yang layak di Pelosok Probolinggo.
+Paket Donasi : Rp.2.700.000/M2 (Biaya Kontruksi Bangunan) , Rp.
+250.000 (Donasi Suka suka) atau bisa di transfer melalui rekening : BCA Syariah – 0160030000, Mandiri – 1410007554579 atas nama Baitul Maal Hidayatullah atau bisa menghubungi call center 081336337811 atau 081440001642.
+(RJ/RED)
+Tags: BMHLaznas BMHMushola
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inisialisasi DataFrame setiap kalimatnya</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Kalimat&quot;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Kalimat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sentences</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-f85a9a1f-75ea-45b2-b17e-0ec463f37f1e" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Kalimat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>\nPROBOLINGGO (RadarJatim.id) Di penghujung ta...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mulai pembangunan mushola pelosok, pembangunan...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Kondisi bangunan mushola Al Munir yang perlu p...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sebagaimana diketahui bersama bahwasanya Lazna...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Sserta Pendistribusian ZIS Terbaik juga Keuang...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Olehnya, pada momen akhir tahun ini Laznas BMH...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Kondisi bangunan mushola Al Munir di Desa Samb...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Apalagi musim hujan pasti bocor dan kayu kayu ...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Pencaharian sekitar warga adalah buruh tani, j...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Karenanya Yukk tutup akhir tahun berkah ini de...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Paket Donasi : Rp.2.700.000/M2 (Biaya Kontruks...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>250.000 (Donasi Suka suka) atau bisa di transf...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>(RJ/RED)\nTags: BMHLaznas BMHMushola</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f85a9a1f-75ea-45b2-b17e-0ec463f37f1e')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-f85a9a1f-75ea-45b2-b17e-0ec463f37f1e button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-f85a9a1f-75ea-45b2-b17e-0ec463f37f1e');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ekstraksi-fitur">
+<h1>Ekstraksi Fitur<a class="headerlink" href="#ekstraksi-fitur" title="Permalink to this heading">#</a></h1>
+<section id="tf-idf">
+<h2>TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+
+<span class="c1"># Inisialisasi penghitung TF-IDF</span>
+<span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+
+<span class="c1"># Hitung TF-IDF</span>
+<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+
+<span class="c1"># Daftar kata kunci</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+
+<span class="c1"># Konversi matriks TF-IDF menjadi bentuk yang lebih mudah dibaca</span>
+<span class="n">tfidf_values</span> <span class="o">=</span> <span class="n">tfidf_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+
+<span class="c1"># Cetak TF-IDF untuk setiap kata dalam setiap kalimat</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sentences</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kalimat </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">sentence</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">feature_names</span><span class="p">):</span>
+        <span class="n">tfidf_value</span> <span class="o">=</span> <span class="n">tfidf_values</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">tfidf_value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">tfidf_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kalimat 1: 
+PROBOLINGGO (RadarJatim.id) Di penghujung tahun 2023 ini, Laznas BMH terus istiqomah menebar kebaikan di pelosok Jawa Timur bersama para donatur dan dermawan.
+2023: 0.2353
+bersama: 0.2029
+bmh: 0.1799
+dan: 0.1246
+dermawan: 0.2353
+di: 0.2491
+donatur: 0.2353
+id: 0.2353
+ini: 0.1799
+istiqomah: 0.2353
+jawa: 0.2353
+kebaikan: 0.2353
+laznas: 0.1799
+menebar: 0.2353
+para: 0.2353
+pelosok: 0.1621
+penghujung: 0.2353
+probolinggo: 0.1621
+radarjatim: 0.2353
+tahun: 0.1621
+terus: 0.2029
+timur: 0.2353
+
+Kalimat 2: Mulai pembangunan mushola pelosok, pembangunan instalasi sumur bor untuk masjid atau pesantren, pendistribusian mushaf Al Qur’an untuk masjid pelosok, solidaritas muslim Palestina, dan masih banyak lagi.
+al: 0.1312
+an: 0.1904
+atau: 0.1642
+banyak: 0.1642
+bor: 0.1904
+dan: 0.1008
+instalasi: 0.1904
+lagi: 0.1904
+masih: 0.1904
+masjid: 0.3808
+mulai: 0.1904
+mushaf: 0.1904
+mushola: 0.1194
+muslim: 0.1904
+palestina: 0.1904
+pelosok: 0.2623
+pembangunan: 0.3283
+pendistribusian: 0.1642
+pesantren: 0.1904
+qur: 0.1904
+solidaritas: 0.1904
+sumur: 0.1904
+untuk: 0.2912
+
+Kalimat 3: Kondisi bangunan mushola Al Munir yang perlu pembenahan.
+al: 0.3037
+bangunan: 0.3371
+kondisi: 0.3802
+munir: 0.3037
+mushola: 0.2764
+pembenahan: 0.4408
+perlu: 0.4408
+yang: 0.3037
+
+Kalimat 4: Sebagaimana diketahui bersama bahwasanya Laznas BMH telah mendapatkan berbagai peghargaan dari Baznas Award 2019 sampai dengan 2022 dalam kategori SDM dan Jaringan Terbaik.
+2019: 0.2207
+2022: 0.2207
+award: 0.2207
+bahwasanya: 0.2207
+baznas: 0.2207
+berbagai: 0.2207
+bersama: 0.1904
+bmh: 0.1688
+dalam: 0.2207
+dan: 0.1169
+dari: 0.2207
+dengan: 0.1688
+diketahui: 0.2207
+jaringan: 0.2207
+kategori: 0.2207
+laznas: 0.1688
+mendapatkan: 0.2207
+peghargaan: 0.2207
+sampai: 0.2207
+sdm: 0.2207
+sebagaimana: 0.2207
+telah: 0.2207
+terbaik: 0.1904
+
+Kalimat 5: Sserta Pendistribusian ZIS Terbaik juga Keuangan Terbaik dan teraudit dengan Predikat Wajar Tanpa Pengecualian 16 kali berturut turut dan terus berkontribusi membangun negeri di 3T (Terdepan, Tertinggal dan Terdalam).
+16: 0.1895
+3t: 0.1895
+berkontribusi: 0.1895
+berturut: 0.1895
+dan: 0.3010
+dengan: 0.1449
+di: 0.1003
+juga: 0.1895
+kali: 0.1895
+keuangan: 0.1895
+membangun: 0.1895
+negeri: 0.1895
+pendistribusian: 0.1634
+pengecualian: 0.1895
+predikat: 0.1895
+sserta: 0.1895
+tanpa: 0.1895
+teraudit: 0.1895
+terbaik: 0.3268
+terdalam: 0.1895
+terdepan: 0.1895
+tertinggal: 0.1895
+terus: 0.1634
+turut: 0.1895
+wajar: 0.1895
+zis: 0.1895
+
+Kalimat 6: Olehnya, pada momen akhir tahun ini Laznas BMH menawarkan sinergi untuk pembangunan mushola pelosok di Probolinggo, tepatnya di desa Sambirampak Kabupaten Probolinggo yang bernama Mushola Al Munir.
+akhir: 0.1915
+al: 0.1530
+bernama: 0.2221
+bmh: 0.1698
+desa: 0.1915
+di: 0.2351
+ini: 0.1698
+kabupaten: 0.2221
+laznas: 0.1698
+menawarkan: 0.2221
+momen: 0.2221
+munir: 0.1530
+mushola: 0.2785
+olehnya: 0.2221
+pada: 0.2221
+pelosok: 0.1530
+pembangunan: 0.1915
+probolinggo: 0.3060
+sambirampak: 0.1915
+sinergi: 0.2221
+tahun: 0.1530
+tepatnya: 0.2221
+untuk: 0.1698
+yang: 0.1530
+
+Kalimat 7: Kondisi bangunan mushola Al Munir di Desa Sambirampak, Probolinggo
+“Yakni kondisi mushola tersebut sudah 47 tahun silam dan sangat memprihantinkan sekali .
+47: 0.2420
+al: 0.1667
+bangunan: 0.1850
+dan: 0.1281
+desa: 0.2087
+di: 0.1281
+kondisi: 0.4173
+memprihantinkan: 0.2420
+munir: 0.1667
+mushola: 0.3035
+probolinggo: 0.1667
+sambirampak: 0.2087
+sangat: 0.2420
+sekali: 0.2420
+silam: 0.2420
+sudah: 0.2420
+tahun: 0.1667
+tersebut: 0.2420
+yakni: 0.2420
+
+Kalimat 8: Apalagi musim hujan pasti bocor dan kayu kayu banyak di makan rayap mata.
+apalagi: 0.2742
+banyak: 0.2364
+bocor: 0.2742
+dan: 0.1451
+di: 0.1451
+hujan: 0.2742
+kayu: 0.5483
+makan: 0.2742
+mata: 0.2742
+musim: 0.2742
+pasti: 0.2742
+rayap: 0.2742
+
+Kalimat 9: Pencaharian sekitar warga adalah buruh tani, jumlah warga 200 KK, Santri yang mengaji 23 anak,” kata Munir.
+200: 0.2360
+23: 0.2360
+adalah: 0.2360
+anak: 0.2360
+buruh: 0.2360
+jumlah: 0.2360
+kata: 0.2360
+kk: 0.2360
+mengaji: 0.2360
+munir: 0.1626
+pencaharian: 0.2360
+santri: 0.2360
+sekitar: 0.2360
+tani: 0.2360
+warga: 0.4721
+yang: 0.1626
+
+Kalimat 10: Karenanya Yukk tutup akhir tahun berkah ini dengan bersinergi dan berdonasi untuk wujudkan mushola yang layak di Pelosok Probolinggo.
+akhir: 0.2360
+berdonasi: 0.2737
+berkah: 0.2737
+bersinergi: 0.2737
+dan: 0.1449
+dengan: 0.2093
+di: 0.1449
+ini: 0.2093
+karenanya: 0.2737
+layak: 0.2737
+mushola: 0.1716
+pelosok: 0.1886
+probolinggo: 0.1886
+tahun: 0.1886
+tutup: 0.2737
+untuk: 0.2093
+wujudkan: 0.2737
+yang: 0.1886
+yukk: 0.2737
+
+Kalimat 11: Paket Donasi : Rp.2.700.000/M2 (Biaya Kontruksi Bangunan) , Rp.
+000: 0.2592
+700: 0.3005
+bangunan: 0.2298
+biaya: 0.3005
+donasi: 0.2592
+kontruksi: 0.3005
+m2: 0.3005
+paket: 0.3005
+rp: 0.6011
+
+Kalimat 12: 250.000 (Donasi Suka suka) atau bisa di transfer melalui rekening : BCA Syariah – 0160030000, Mandiri – 1410007554579 atas nama Baitul Maal Hidayatullah atau bisa menghubungi call center 081336337811 atau 081440001642.
+000: 0.1448
+0160030000: 0.1679
+081336337811: 0.1679
+081440001642: 0.1679
+1410007554579: 0.1679
+250: 0.1679
+atas: 0.1679
+atau: 0.4344
+baitul: 0.1679
+bca: 0.1679
+bisa: 0.3359
+call: 0.1679
+center: 0.1679
+di: 0.0889
+donasi: 0.1448
+hidayatullah: 0.1679
+maal: 0.1679
+mandiri: 0.1679
+melalui: 0.1679
+menghubungi: 0.1679
+nama: 0.1679
+rekening: 0.1679
+suka: 0.3359
+syariah: 0.1679
+transfer: 0.1679
+
+Kalimat 13: (RJ/RED)
+Tags: BMHLaznas BMHMushola
+bmhlaznas: 0.4472
+bmhmushola: 0.4472
+red: 0.4472
+rj: 0.4472
+tags: 0.4472
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">cosine_similarity</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+
+<span class="c1"># Indeks kalimat yang akan dibandingkan</span>
+<span class="n">sentence1_index</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Ganti dengan indeks kalimat pertama yang ingin Anda bandingkan</span>
+<span class="n">sentence2_index</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Ganti dengan indeks kalimat kedua yang ingin Anda bandingkan</span>
+
+<span class="c1"># Ambil vektor TF-IDF untuk kedua kalimat</span>
+<span class="n">tfidf_vector1</span> <span class="o">=</span> <span class="n">tfidf_matrix</span><span class="p">[</span><span class="n">sentence1_index</span><span class="p">]</span>
+<span class="n">tfidf_vector2</span> <span class="o">=</span> <span class="n">tfidf_matrix</span><span class="p">[</span><span class="n">sentence2_index</span><span class="p">]</span>
+
+<span class="c1"># Hitung cosine similarity antara kedua vektor</span>
+<span class="n">similarity</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span><span class="n">tfidf_vector1</span><span class="p">,</span> <span class="n">tfidf_vector2</span><span class="p">)</span>
+
+<span class="c1"># Cetak hasil cosine similarity</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cosine Similarity antara Kalimat </span><span class="si">{</span><span class="n">sentence1_index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> dan Kalimat </span><span class="si">{</span><span class="n">sentence2_index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">similarity</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cosine Similarity antara Kalimat 1 dan Kalimat 2: 0.0551
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="menyusun-dan-menampilkan-graph">
+<h1>Menyusun dan Menampilkan Graph<a class="headerlink" href="#menyusun-dan-menampilkan-graph" title="Permalink to this heading">#</a></h1>
+<section id="cosine-similarity">
+<h2>Cosine Similarity<a class="headerlink" href="#cosine-similarity" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matriks TF-IDF telah dihitung sebelumnya (tfidf_matrix)</span>
+
+<span class="c1"># Hitung cosine similarity antara semua pasangan kalimat</span>
+<span class="n">similarity_matrix</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span><span class="n">tfidf_matrix</span><span class="p">,</span> <span class="n">tfidf_matrix</span><span class="p">)</span>
+
+<span class="c1"># Cetak hasil similarity_matrix</span>
+<span class="n">num_sentences</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>  <span class="c1"># Jumlah kalimat</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sentences</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_sentences</span><span class="p">):</span>
+        <span class="n">similarity</span> <span class="o">=</span> <span class="n">similarity_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cosine Similarity antara Kalimat </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> dan Kalimat </span><span class="si">{</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">similarity</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cosine Similarity antara Kalimat 1 dan Kalimat 2: 0.0551
+Cosine Similarity antara Kalimat 1 dan Kalimat 3: 0.0000
+Cosine Similarity antara Kalimat 1 dan Kalimat 4: 0.1139
+Cosine Similarity antara Kalimat 1 dan Kalimat 5: 0.0956
+Cosine Similarity antara Kalimat 1 dan Kalimat 6: 0.2494
+Cosine Similarity antara Kalimat 1 dan Kalimat 7: 0.1019
+Cosine Similarity antara Kalimat 1 dan Kalimat 8: 0.0542
+Cosine Similarity antara Kalimat 1 dan Kalimat 9: 0.0000
+Cosine Similarity antara Kalimat 1 dan Kalimat 10: 0.1835
+Cosine Similarity antara Kalimat 1 dan Kalimat 11: 0.0000
+Cosine Similarity antara Kalimat 1 dan Kalimat 12: 0.0221
+Cosine Similarity antara Kalimat 1 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 2 dan Kalimat 3: 0.0728
+Cosine Similarity antara Kalimat 2 dan Kalimat 4: 0.0118
+Cosine Similarity antara Kalimat 2 dan Kalimat 5: 0.0572
+Cosine Similarity antara Kalimat 2 dan Kalimat 6: 0.2058
+Cosine Similarity antara Kalimat 2 dan Kalimat 7: 0.0710
+Cosine Similarity antara Kalimat 2 dan Kalimat 8: 0.0534
+Cosine Similarity antara Kalimat 2 dan Kalimat 9: 0.0000
+Cosine Similarity antara Kalimat 2 dan Kalimat 10: 0.1455
+Cosine Similarity antara Kalimat 2 dan Kalimat 11: 0.0000
+Cosine Similarity antara Kalimat 2 dan Kalimat 12: 0.0713
+Cosine Similarity antara Kalimat 2 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 3 dan Kalimat 4: 0.0000
+Cosine Similarity antara Kalimat 3 dan Kalimat 5: 0.0000
+Cosine Similarity antara Kalimat 3 dan Kalimat 6: 0.2164
+Cosine Similarity antara Kalimat 3 dan Kalimat 7: 0.4062
+Cosine Similarity antara Kalimat 3 dan Kalimat 8: 0.0000
+Cosine Similarity antara Kalimat 3 dan Kalimat 9: 0.0988
+Cosine Similarity antara Kalimat 3 dan Kalimat 10: 0.1047
+Cosine Similarity antara Kalimat 3 dan Kalimat 11: 0.0775
+Cosine Similarity antara Kalimat 3 dan Kalimat 12: 0.0000
+Cosine Similarity antara Kalimat 3 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 4 dan Kalimat 5: 0.1218
+Cosine Similarity antara Kalimat 4 dan Kalimat 6: 0.0573
+Cosine Similarity antara Kalimat 4 dan Kalimat 7: 0.0150
+Cosine Similarity antara Kalimat 4 dan Kalimat 8: 0.0170
+Cosine Similarity antara Kalimat 4 dan Kalimat 9: 0.0000
+Cosine Similarity antara Kalimat 4 dan Kalimat 10: 0.0523
+Cosine Similarity antara Kalimat 4 dan Kalimat 11: 0.0000
+Cosine Similarity antara Kalimat 4 dan Kalimat 12: 0.0000
+Cosine Similarity antara Kalimat 4 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 5 dan Kalimat 6: 0.0236
+Cosine Similarity antara Kalimat 5 dan Kalimat 7: 0.0514
+Cosine Similarity antara Kalimat 5 dan Kalimat 8: 0.0582
+Cosine Similarity antara Kalimat 5 dan Kalimat 9: 0.0000
+Cosine Similarity antara Kalimat 5 dan Kalimat 10: 0.0885
+Cosine Similarity antara Kalimat 5 dan Kalimat 11: 0.0000
+Cosine Similarity antara Kalimat 5 dan Kalimat 12: 0.0089
+Cosine Similarity antara Kalimat 5 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 6 dan Kalimat 7: 0.3221
+Cosine Similarity antara Kalimat 6 dan Kalimat 8: 0.0341
+Cosine Similarity antara Kalimat 6 dan Kalimat 9: 0.0498
+Cosine Similarity antara Kalimat 6 dan Kalimat 10: 0.3424
+Cosine Similarity antara Kalimat 6 dan Kalimat 11: 0.0000
+Cosine Similarity antara Kalimat 6 dan Kalimat 12: 0.0209
+Cosine Similarity antara Kalimat 6 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 7 dan Kalimat 8: 0.0372
+Cosine Similarity antara Kalimat 7 dan Kalimat 9: 0.0271
+Cosine Similarity antara Kalimat 7 dan Kalimat 10: 0.1521
+Cosine Similarity antara Kalimat 7 dan Kalimat 11: 0.0425
+Cosine Similarity antara Kalimat 7 dan Kalimat 12: 0.0114
+Cosine Similarity antara Kalimat 7 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 8 dan Kalimat 9: 0.0000
+Cosine Similarity antara Kalimat 8 dan Kalimat 10: 0.0421
+Cosine Similarity antara Kalimat 8 dan Kalimat 11: 0.0000
+Cosine Similarity antara Kalimat 8 dan Kalimat 12: 0.0129
+Cosine Similarity antara Kalimat 8 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 9 dan Kalimat 10: 0.0307
+Cosine Similarity antara Kalimat 9 dan Kalimat 11: 0.0000
+Cosine Similarity antara Kalimat 9 dan Kalimat 12: 0.0000
+Cosine Similarity antara Kalimat 9 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 10 dan Kalimat 11: 0.0000
+Cosine Similarity antara Kalimat 10 dan Kalimat 12: 0.0129
+Cosine Similarity antara Kalimat 10 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 11 dan Kalimat 12: 0.0751
+Cosine Similarity antara Kalimat 11 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 12 dan Kalimat 13: 0.0000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Matriks TF-IDF telah dihitung sebelumnya (tfidf_matrix)</span>
+<span class="c1"># Hitung cosine similarity antara semua pasangan kalimat</span>
+<span class="n">similarity_matrix</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span><span class="n">tfidf_matrix</span><span class="p">,</span> <span class="n">tfidf_matrix</span><span class="p">)</span>
+
+<span class="c1"># Nama kolom dan indeks untuk DataFrame</span>
+<span class="n">sentence_indices</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Kalimat </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">))]</span>
+
+<span class="c1"># Buat DataFrame dari hasil cosine similarity</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">similarity_matrix</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">sentence_indices</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">sentence_indices</span><span class="p">)</span>
+
+<span class="c1"># Cetak DataFrame</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-5d583879-090a-4d42-bd33-00df24ddfffd" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Kalimat 1</th>
+      <th>Kalimat 2</th>
+      <th>Kalimat 3</th>
+      <th>Kalimat 4</th>
+      <th>Kalimat 5</th>
+      <th>Kalimat 6</th>
+      <th>Kalimat 7</th>
+      <th>Kalimat 8</th>
+      <th>Kalimat 9</th>
+      <th>Kalimat 10</th>
+      <th>Kalimat 11</th>
+      <th>Kalimat 12</th>
+      <th>Kalimat 13</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Kalimat 1</th>
+      <td>1.000000</td>
+      <td>0.055073</td>
+      <td>0.000000</td>
+      <td>0.113916</td>
+      <td>0.095629</td>
+      <td>0.249413</td>
+      <td>0.101912</td>
+      <td>0.054235</td>
+      <td>0.000000</td>
+      <td>0.183483</td>
+      <td>0.000000</td>
+      <td>0.022147</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat 2</th>
+      <td>0.055073</td>
+      <td>1.000000</td>
+      <td>0.072837</td>
+      <td>0.011779</td>
+      <td>0.057161</td>
+      <td>0.205765</td>
+      <td>0.071006</td>
+      <td>0.053444</td>
+      <td>0.000000</td>
+      <td>0.145492</td>
+      <td>0.000000</td>
+      <td>0.071325</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat 3</th>
+      <td>0.000000</td>
+      <td>0.072837</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.216385</td>
+      <td>0.406194</td>
+      <td>0.000000</td>
+      <td>0.098781</td>
+      <td>0.104711</td>
+      <td>0.077474</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat 4</th>
+      <td>0.113916</td>
+      <td>0.011779</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.121848</td>
+      <td>0.057330</td>
+      <td>0.014971</td>
+      <td>0.016963</td>
+      <td>0.000000</td>
+      <td>0.052262</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat 5</th>
+      <td>0.095629</td>
+      <td>0.057161</td>
+      <td>0.000000</td>
+      <td>0.121848</td>
+      <td>1.000000</td>
+      <td>0.023588</td>
+      <td>0.051406</td>
+      <td>0.058244</td>
+      <td>0.000000</td>
+      <td>0.088470</td>
+      <td>0.000000</td>
+      <td>0.008919</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat 6</th>
+      <td>0.249413</td>
+      <td>0.205765</td>
+      <td>0.216385</td>
+      <td>0.057330</td>
+      <td>0.023588</td>
+      <td>1.000000</td>
+      <td>0.322080</td>
+      <td>0.034127</td>
+      <td>0.049758</td>
+      <td>0.342376</td>
+      <td>0.000000</td>
+      <td>0.020904</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat 7</th>
+      <td>0.101912</td>
+      <td>0.071006</td>
+      <td>0.406194</td>
+      <td>0.014971</td>
+      <td>0.051406</td>
+      <td>0.322080</td>
+      <td>1.000000</td>
+      <td>0.037188</td>
+      <td>0.027110</td>
+      <td>0.152075</td>
+      <td>0.042525</td>
+      <td>0.011389</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat 8</th>
+      <td>0.054235</td>
+      <td>0.053444</td>
+      <td>0.000000</td>
+      <td>0.016963</td>
+      <td>0.058244</td>
+      <td>0.034127</td>
+      <td>0.037188</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.042061</td>
+      <td>0.000000</td>
+      <td>0.012904</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat 9</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.098781</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.049758</td>
+      <td>0.027110</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.030663</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat 10</th>
+      <td>0.183483</td>
+      <td>0.145492</td>
+      <td>0.104711</td>
+      <td>0.052262</td>
+      <td>0.088470</td>
+      <td>0.342376</td>
+      <td>0.152075</td>
+      <td>0.042061</td>
+      <td>0.030663</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.012882</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat 11</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.077474</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.042525</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.075062</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat 12</th>
+      <td>0.022147</td>
+      <td>0.071325</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.008919</td>
+      <td>0.020904</td>
+      <td>0.011389</td>
+      <td>0.012904</td>
+      <td>0.000000</td>
+      <td>0.012882</td>
+      <td>0.075062</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat 13</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5d583879-090a-4d42-bd33-00df24ddfffd')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-5d583879-090a-4d42-bd33-00df24ddfffd button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-5d583879-090a-4d42-bd33-00df24ddfffd');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Matriks TF-IDF telah dihitung sebelumnya (tfidf_matrix)</span>
+<span class="c1"># Hitung cosine similarity antara semua pasangan kalimat</span>
+<span class="n">similarity_matrix</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span><span class="n">tfidf_matrix</span><span class="p">,</span> <span class="n">tfidf_matrix</span><span class="p">)</span>
+
+<span class="c1"># Nama kolom dan indeks untuk DataFrame</span>
+<span class="n">sentence_indices</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Kalimat </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">))]</span>
+
+<span class="c1"># Buat DataFrame dari hasil cosine similarity</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">similarity_matrix</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">sentence_indices</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">sentence_indices</span><span class="p">)</span>
+
+<span class="c1"># Membuat grafik matriks</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+
+<span class="c1"># Memberi label pada sumbu X dan Y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan nilai similarity pada matriks</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)):</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bd67f8bcf8afdcaad8c2ed02506965455da4edbe1daee218acecfeab95f2337e.png" src="_images/bd67f8bcf8afdcaad8c2ed02506965455da4edbe1daee218acecfeab95f2337e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Buat grafik dari matriks similarity</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+
+<span class="c1"># Tambahkan simpul (node) ke grafik yang mewakili setiap kalimat</span>
+<span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+
+<span class="c1"># Tambahkan tepi (edge) antara kalimat berdasarkan similarity</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">)):</span>
+        <span class="n">similarity</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>  <span class="c1"># Mengambil similarity dari DataFrame</span>
+        <span class="k">if</span> <span class="n">similarity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">sentences</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sentences</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">weight</span><span class="o">=</span><span class="n">similarity</span><span class="p">)</span>
+
+<span class="c1"># Hitung closeness centrality untuk setiap simpul</span>
+<span class="n">closeness_centrality</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">closeness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+
+<span class="c1"># Cetak closeness centrality</span>
+<span class="k">for</span> <span class="n">sentence</span><span class="p">,</span> <span class="n">centrality</span> <span class="ow">in</span> <span class="n">closeness_centrality</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Closeness Centrality of </span><span class="si">{</span><span class="n">sentence</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">centrality</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closeness Centrality of 
+PROBOLINGGO (RadarJatim.id) Di penghujung tahun 2023 ini, Laznas BMH terus istiqomah menebar kebaikan di pelosok Jawa Timur bersama para donatur dan dermawan.: 17.7500
+Closeness Centrality of Mulai pembangunan mushola pelosok, pembangunan instalasi sumur bor untuk masjid atau pesantren, pendistribusian mushaf Al Qur’an untuk masjid pelosok, solidaritas muslim Palestina, dan masih banyak lagi.: 19.6336
+Closeness Centrality of Kondisi bangunan mushola Al Munir yang perlu pembenahan.: 8.9214
+Closeness Centrality of Sebagaimana diketahui bersama bahwasanya Laznas BMH telah mendapatkan berbagai peghargaan dari Baznas Award 2019 sampai dengan 2022 dalam kategori SDM dan Jaringan Terbaik.: 23.7501
+Closeness Centrality of Sserta Pendistribusian ZIS Terbaik juga Keuangan Terbaik dan teraudit dengan Predikat Wajar Tanpa Pengecualian 16 kali berturut turut dan terus berkontribusi membangun negeri di 3T (Terdepan, Tertinggal dan Terdalam).: 22.9173
+Closeness Centrality of Olehnya, pada momen akhir tahun ini Laznas BMH menawarkan sinergi untuk pembangunan mushola pelosok di Probolinggo, tepatnya di desa Sambirampak Kabupaten Probolinggo yang bernama Mushola Al Munir.: 18.3270
+Closeness Centrality of Kondisi bangunan mushola Al Munir di Desa Sambirampak, Probolinggo
+“Yakni kondisi mushola tersebut sudah 47 tahun silam dan sangat memprihantinkan sekali .: 28.2419
+Closeness Centrality of Apalagi musim hujan pasti bocor dan kayu kayu banyak di makan rayap mata.: 24.0555
+Closeness Centrality of Pencaharian sekitar warga adalah buruh tani, jumlah warga 200 KK, Santri yang mengaji 23 anak,” kata Munir.: 17.6944
+Closeness Centrality of Karenanya Yukk tutup akhir tahun berkah ini dengan bersinergi dan berdonasi untuk wujudkan mushola yang layak di Pelosok Probolinggo.: 22.6090
+Closeness Centrality of Paket Donasi : Rp.2.700.000/M2 (Biaya Kontruksi Bangunan) , Rp.: 14.0505
+Closeness Centrality of 250.000 (Donasi Suka suka) atau bisa di transfer melalui rekening : BCA Syariah – 0160030000, Mandiri – 1410007554579 atas nama Baitul Maal Hidayatullah atau bisa menghubungi call center 081336337811 atau 081440001642.: 28.2419
+Closeness Centrality of (RJ/RED)
+Tags: BMHLaznas BMHMushola: 0.0000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="graph">
+<h2>Graph<a class="headerlink" href="#graph" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Matriks TF-IDF telah dihitung sebelumnya (tfidf_matrix)</span>
+<span class="c1"># Hitung cosine similarity antara semua pasangan kalimat</span>
+<span class="n">similarity_matrix</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span><span class="n">tfidf_matrix</span><span class="p">,</span> <span class="n">tfidf_matrix</span><span class="p">)</span>
+
+<span class="c1"># Buat grafik berarah (DiGraph) berdasarkan similarity_matrix</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">similarity_matrix</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Tambahkan node dengan indeks numerik</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">similarity_matrix</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">similarity_matrix</span><span class="p">)):</span>
+        <span class="n">similarity</span> <span class="o">=</span> <span class="n">similarity_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">similarity</span> <span class="o">&gt;</span> <span class="mf">0.15</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>  <span class="c1"># Pastikan node tidak menghubungkan dirinya sendiri</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+
+<span class="c1"># Hitung closeness centrality</span>
+<span class="n">closeness_centrality</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">closeness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+<span class="c1"># Visualisasi closeness centrality</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>  <span class="c1"># Atur layout grafik</span>
+<span class="n">node_size</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="o">*</span> <span class="mi">1000</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">closeness_centrality</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>  <span class="c1"># Ubah ukuran node berdasarkan closeness centrality, dengan faktor pengurangan ukuran</span>
+
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="n">node_size</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/42465218271d2972f866c40770e198be1b486b5c0596bb57316fa130131306cd.png" src="_images/42465218271d2972f866c40770e198be1b486b5c0596bb57316fa130131306cd.png" />
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="matriks-sentralitas">
+<h1>Matriks Sentralitas<a class="headerlink" href="#matriks-sentralitas" title="Permalink to this heading">#</a></h1>
+<section id="closeness-cetrality">
+<h2>Closeness Cetrality<a class="headerlink" href="#closeness-cetrality" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cetak closeness centrality</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Closeness Centrality:&quot;</span><span class="p">)</span>
+<span class="c1"># for node, closeness in closeness_centrality.items():</span>
+<span class="c1">#     print(f&quot;Node {node}: {closeness:.4f}&quot;)</span>
+<span class="n">sorted_closeness</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">closeness_centrality</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">closeness</span> <span class="ow">in</span> <span class="n">sorted_closeness</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Node </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">closeness</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closeness Centrality:
+Node 5: 0.4167
+Node 6: 0.2976
+Node 9: 0.2976
+Node 0: 0.2604
+Node 2: 0.2604
+Node 1: 0.2315
+Node 3: 0.0000
+Node 4: 0.0000
+Node 7: 0.0000
+Node 8: 0.0000
+Node 10: 0.0000
+Node 11: 0.0000
+Node 12: 0.0000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cetak closeness centrality</span>
+<span class="n">top_3_closeness</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sorted_closeness</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Memasukkan 3 kalimat teratas dan informasi node ke dalam DataFrame</span>
+<span class="n">datacl</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Node&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">node</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">top_3_closeness</span><span class="p">],</span>
+    <span class="s2">&quot;Closeness Centrality&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">closeness</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">closeness</span> <span class="ow">in</span> <span class="n">top_3_closeness</span><span class="p">],</span>
+    <span class="s2">&quot;Kalimat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">sentences</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">top_3_closeness</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df_top_3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">datacl</span><span class="p">)</span>
+
+<span class="c1"># Cetak DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tiga Node Closeness Teratas&quot;</span><span class="p">)</span>
+<span class="n">df_top_3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tiga Node Closeness Teratas
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-963da67c-980f-4c98-8773-6e53e88f39c7" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Node</th>
+      <th>Closeness Centrality</th>
+      <th>Kalimat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5</td>
+      <td>0.416667</td>
+      <td>Olehnya, pada momen akhir tahun ini Laznas BMH...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6</td>
+      <td>0.297619</td>
+      <td>Kondisi bangunan mushola Al Munir di Desa Samb...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>0.297619</td>
+      <td>Karenanya Yukk tutup akhir tahun berkah ini de...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-963da67c-980f-4c98-8773-6e53e88f39c7')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-963da67c-980f-4c98-8773-6e53e88f39c7 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-963da67c-980f-4c98-8773-6e53e88f39c7');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+</section>
+<section id="page-rank">
+<h2>Page Rank<a class="headerlink" href="#page-rank" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hitung PageRank</span>
+<span class="n">pagerank</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+<span class="c1"># Cetak PageRank dalam urutan dari terbesar ke terkecil</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PageRank :&quot;</span><span class="p">)</span>
+<span class="n">sorted_pagerank</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">pagerank</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">rank</span> <span class="ow">in</span> <span class="n">sorted_pagerank</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Node </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">rank</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PageRank :
+Node 5: 0.2573
+Node 6: 0.1554
+Node 9: 0.1554
+Node 0: 0.1090
+Node 2: 0.1090
+Node 1: 0.0650
+Node 3: 0.0213
+Node 4: 0.0213
+Node 7: 0.0213
+Node 8: 0.0213
+Node 10: 0.0213
+Node 11: 0.0213
+Node 12: 0.0213
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cetak closeness centrality</span>
+<span class="n">top_3_pagerank</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sorted_pagerank</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Memasukkan 3 kalimat teratas dan informasi node ke dalam DataFrame</span>
+<span class="n">datapg</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Node&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">node</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">top_3_pagerank</span><span class="p">],</span>
+    <span class="s2">&quot;Pagerank&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">rank</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">rank</span> <span class="ow">in</span> <span class="n">top_3_pagerank</span><span class="p">],</span>
+    <span class="s2">&quot;Kalimat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">sentences</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">top_3_pagerank</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df_top_3pg</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">datapg</span><span class="p">)</span>
+
+<span class="c1"># Cetak DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tiga Node Pagerank Teratas&quot;</span><span class="p">)</span>
+<span class="n">df_top_3pg</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tiga Node Pagerank Teratas
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-5071b346-d22e-4f08-bbe1-236be8b29946" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Node</th>
+      <th>Pagerank</th>
+      <th>Kalimat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5</td>
+      <td>0.257255</td>
+      <td>Olehnya, pada momen akhir tahun ini Laznas BMH...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6</td>
+      <td>0.155369</td>
+      <td>Kondisi bangunan mushola Al Munir di Desa Samb...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>0.155369</td>
+      <td>Karenanya Yukk tutup akhir tahun berkah ini de...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5071b346-d22e-4f08-bbe1-236be8b29946')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-5071b346-d22e-4f08-bbe1-236be8b29946 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-5071b346-d22e-4f08-bbe1-236be8b29946');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+</section>
+<section id="between-centrality">
+<h2>Between Centrality<a class="headerlink" href="#between-centrality" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hitung betweenness centrality</span>
+<span class="n">betweenness</span><span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+<span class="c1"># Cetak DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataFrame Betweenness Centrality:&quot;</span><span class="p">)</span>
+<span class="n">sorted_betweenness</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">betweenness</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">between</span> <span class="ow">in</span> <span class="n">sorted_betweenness</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Node </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">between</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame Betweenness Centrality:
+Node 5: 0.0909
+Node 6: 0.0076
+Node 9: 0.0076
+Node 0: 0.0000
+Node 1: 0.0000
+Node 2: 0.0000
+Node 3: 0.0000
+Node 4: 0.0000
+Node 7: 0.0000
+Node 8: 0.0000
+Node 10: 0.0000
+Node 11: 0.0000
+Node 12: 0.0000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cetak closeness centrality</span>
+<span class="n">top_3_between</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sorted_betweenness</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Memasukkan 3 kalimat teratas dan informasi node ke dalam DataFrame</span>
+<span class="n">databw</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Node&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">node</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">top_3_between</span><span class="p">],</span>
+    <span class="s2">&quot;Between&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">between</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">between</span> <span class="ow">in</span> <span class="n">top_3_between</span><span class="p">],</span>
+    <span class="s2">&quot;Kalimat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">sentences</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">top_3_between</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df_top_3bw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">databw</span><span class="p">)</span>
+
+<span class="c1"># Cetak DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tiga Node Between Teratas&quot;</span><span class="p">)</span>
+<span class="n">df_top_3bw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tiga Node Between Teratas
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-d4ddf74d-ddd1-4965-8518-4bad68b5ed45" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Node</th>
+      <th>Between</th>
+      <th>Kalimat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5</td>
+      <td>0.090909</td>
+      <td>Olehnya, pada momen akhir tahun ini Laznas BMH...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6</td>
+      <td>0.007576</td>
+      <td>Kondisi bangunan mushola Al Munir di Desa Samb...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>0.007576</td>
+      <td>Karenanya Yukk tutup akhir tahun berkah ini de...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d4ddf74d-ddd1-4965-8518-4bad68b5ed45')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-d4ddf74d-ddd1-4965-8518-4bad68b5ed45 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-d4ddf74d-ddd1-4965-8518-4bad68b5ed45');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+</section>
+<section id="eigenvector">
+<h2>Eigenvector<a class="headerlink" href="#eigenvector" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hitung betweenness centrality</span>
+<span class="n">eigenvector</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">eigenvector_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+<span class="c1"># Cetak DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigen Vector :&quot;</span><span class="p">)</span>
+<span class="n">sorted_eigen</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">eigenvector</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">eigenvector</span> <span class="ow">in</span> <span class="n">sorted_eigen</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Node </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">eigenvector</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigen Vector :
+Node 5: 0.5785
+Node 6: 0.4481
+Node 9: 0.4481
+Node 0: 0.3373
+Node 2: 0.3373
+Node 1: 0.1901
+Node 3: 0.0000
+Node 4: 0.0000
+Node 7: 0.0000
+Node 8: 0.0000
+Node 10: 0.0000
+Node 11: 0.0000
+Node 12: 0.0000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cetak closeness centrality</span>
+<span class="n">top_3_eigen</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sorted_eigen</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Memasukkan 3 kalimat teratas dan informasi node ke dalam DataFrame</span>
+<span class="n">databw</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Node&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">node</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">top_3_eigen</span><span class="p">],</span>
+    <span class="s2">&quot;eigen&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">eigen</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">eigen</span> <span class="ow">in</span> <span class="n">top_3_eigen</span><span class="p">],</span>
+    <span class="s2">&quot;Kalimat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">sentences</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">top_3_eigen</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df_top_3bw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">databw</span><span class="p">)</span>
+
+<span class="c1"># Cetak DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tiga Node Eigenvector Teratas&quot;</span><span class="p">)</span>
+<span class="n">df_top_3bw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tiga Node Eigenvector Teratas
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-35a89a08-43c3-4adb-a105-500c2964c471" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Node</th>
+      <th>eigen</th>
+      <th>Kalimat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5</td>
+      <td>0.578538</td>
+      <td>Olehnya, pada momen akhir tahun ini Laznas BMH...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6</td>
+      <td>0.448119</td>
+      <td>Kondisi bangunan mushola Al Munir di Desa Samb...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>0.448119</td>
+      <td>Karenanya Yukk tutup akhir tahun berkah ini de...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-35a89a08-43c3-4adb-a105-500c2964c471')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-35a89a08-43c3-4adb-a105-500c2964c471 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-35a89a08-43c3-4adb-a105-500c2964c471');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Tugas%202.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Proporsi Teks</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Crawling%20UAS%20PPW.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Crawling Tugas UAS</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Scraping Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-fitur">Ekstraksi Fitur</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menyusun-dan-menampilkan-graph">Menyusun dan Menampilkan Graph</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">Cosine Similarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">Graph</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-sentralitas">Matriks Sentralitas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-cetrality">Closeness Cetrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-rank">Page Rank</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#between-centrality">Between Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvector">Eigenvector</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Luthvi Ramasandhika Yustiadi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
